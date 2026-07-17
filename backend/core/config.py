@@ -1,11 +1,4 @@
-"""
-FRIDAY X Configuration
-----------------------
-Central configuration for the application.
-"""
-
-from dataclasses import dataclass
-
+from dataclasses import dataclass, field
 
 @dataclass
 class AppConfig:
@@ -15,5 +8,12 @@ class AppConfig:
     wake_word: str = "Friday"
     debug: bool = True
 
+    boot_steps: list[str] = field(default_factory=lambda: [
+        "Loading configuration...",
+        "Initializing logger...",
+        "Checking system...",
+        "Loading modules...",
+        "Preparing AI engine...",
+    ])
 
 config = AppConfig()
