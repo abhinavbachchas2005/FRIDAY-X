@@ -1,4 +1,14 @@
+from command_registry import CommandRegistry
+
+
 class CommandHandler:
+
+    def __init__(self):
+        self.registry = CommandRegistry()
+
+        self.registry.register("help", self.show_help)
+        self.registry.register("about", self.show_about)
+        self.registry.register("version", self.show_version)
 
     def start(self):
         print("\nFRIDAY X is ready, Boss.")
@@ -9,24 +19,14 @@ class CommandHandler:
 
             command = input("FRIDAY > ").strip().lower()
 
-            if command == "help":
-                self.show_help()
+            if command == "":
+                continue
 
-            elif command == "about":
-                self.show_about()
-
-            elif command == "version":
-                self.show_version()
-
-            elif command == "exit":
+            if command == "exit":
                 print("\nGoodbye, Boss.")
                 break
 
-            elif command == "":
-                continue
-
-            else:
-                print("Unknown command.")
+            self.registry.execute(command)
 
     def show_help(self):
         print("\nAvailable Commands")
