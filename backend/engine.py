@@ -9,4 +9,4 @@ class Engine:
         print("Welcome, Boss.")
 
         # Start the command console
-        self.command_handler.start() contri
+        self.command_handler.start()
