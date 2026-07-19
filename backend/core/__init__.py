@@ -1,1 +1,0 @@
-self.command_handler = CommandHandler()

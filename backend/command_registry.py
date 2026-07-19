@@ -7,7 +7,8 @@ class CommandRegistry:
         self.commands[command] = function
 
     def execute(self, command):
+
         if command in self.commands:
             self.commands[command]()
         else:
-            print("❌ Unknown command. Type 'help'.")
+            print("Unknown command.")
